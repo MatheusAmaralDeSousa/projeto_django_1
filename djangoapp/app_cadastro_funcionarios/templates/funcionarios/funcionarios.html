@@ -33,6 +33,11 @@
 
                         <th
                             class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 text-center">
+                            Cargo
+                        </th>
+
+                        <th
+                            class="whitespace-nowrap px-4 py-2 text-left font-medium text-gray-900 text-center">
                             Ações
                         </th>
                     </tr>
@@ -40,21 +45,24 @@
 
                 <tbody class="divide-y divide-gray-200">
                     <tr class="hover:bg-gray-200 hover:text-gray-900">
-                        {% for usuario in funcionarios%}
+                        {% for funcionario in funcionarios%}
                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                            {{usuario.id_usuario}}
+                            {{funcionario.id_funcionario}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.nome}}
+                            {{funcionario.nome}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.idade}}
+                            {{funcionario.idade}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.cpf}}
+                            {{funcionario.cpf}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.rg}}
+                            {{funcionario.rg}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{funcionario.cargo}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
                             <div class="flex justify-center">
