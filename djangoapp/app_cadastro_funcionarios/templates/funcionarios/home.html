@@ -1,0 +1,41 @@
+{% extends 'funcionarios/base.html '%}
+
+{% block conteudo %}
+<form action="{% url 'listagem_funcionarios' %}" method="post">
+    {% csrf_token %}
+        <div class="flex justify-center">
+            <div class="flex flex-col input w-full p-5 xl:p-0 xl:w-1/2 space-y-5">
+                <div class="imput-box">
+                    <label class="text-[#853A9E] font-bold" for="nome">Nome</label>
+                    <input name="nome" type="text" placeholder=" Digite seu número de crachá" required
+                        class="w-full h-8 border border-purple-800 rounded-md">
+                </div>
+    
+                <div class="imput-box">
+                    <div class="w-fit text-[#853A9E] font-bold" for="idade">
+                        <span>Idade</span>
+                    </div>
+                    <input name="idade" type="text" placeholder=" Digite sua idade" required
+                        class="w-full h-8 border border-purple-800 rounded-md">
+                </div>
+
+                <div class="imput-box">
+                    <label class="text-[#853A9E] font-bold" for="cpf">CPF</label>
+                    <input name="cpf" type="text" placeholder=" Digite seu CPF" required
+                        class="w-full h-8 border border-purple-800 rounded-md">
+                </div>
+
+                <div class="imput-box">
+                    <label class="text-[#853A9E] font-bold" for="rg">RG</label>
+                    <input name="rg" type="text" placeholder=" Digite seu RG" required
+                        class="w-full h-8 border border-purple-800 rounded-md">
+                </div>
+                <button class="bg-[#853A9E] w-40 py-2 rounded-md text-gray-50 ml-96 hover:bg-[#5C2472]">
+                    Gravar
+                </button>
+    
+            </div>
+        </div>
+</form>
+{% endblock %}
+
