@@ -26,7 +26,7 @@ EXPOSE 8000
 # imagem como uma nova camada.
 # Agrupar os comandos em um único RUN pode reduzir a quantidade de camadas da 
 # imagem e torná-la mais eficiente.
-RUN python -m venv /venv && \
+RUN python3 -m venv /venv && \
   /venv/bin/pip install --upgrade pip && \
   /venv/bin/pip install -r /djangoapp/requirements.txt && \
   adduser --disabled-password --no-create-home duser && \
@@ -37,7 +37,8 @@ RUN python -m venv /venv && \
   chown -R duser:duser /data/web/media && \
   chmod -R 755 /data/web/static && \
   chmod -R 755 /data/web/media && \
-  chmod -R +x /scripts
+  chmod -R +x /scripts && \
+  ls -all
 
 # Adiciona a pasta scripts e venv/bin 
 # no $PATH do container.
@@ -47,4 +48,4 @@ ENV PATH="/scripts:/venv/bin:$PATH"
 USER duser
 
 # Executa o arquivo scripts/commands.sh
-CMD ["commands.sh"]
+CMD ["/scripts/commands.sh"]
