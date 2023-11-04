@@ -12,7 +12,7 @@ services:
       - ./data/web/static:/data/web/static/
       - ./data/web/media:/data/web/media/
     env_file:
-      - ./dotenv_files/.env
+      - ./.env
     depends_on:
       - psql
   psql:
@@ -21,7 +21,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
-      - ./dotenv_files/.env
+      - ./.env
 
 volumes:
   postgres_data:
