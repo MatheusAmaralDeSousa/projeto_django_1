@@ -1,4 +1,4 @@
-FROM python:3.11-alpine3.18
+FROM docker.io/library/python:3.11-alpine3.18  
 LABEL mantainer="matheusamaraus@gmail.com"
 
 # Essa variável de ambiente é usada para controlar se o Python deve 
