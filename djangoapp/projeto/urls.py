@@ -16,11 +16,18 @@ Including another URLconf
 """
 from django.urls import path
 from app_cadastro_usuarios import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     #rota, view responsavel, nome de referencia
     # usuarios.com
     path('',views.home,name = "home"),
     # usuarios.com/usuarios
-    path('usuarios/',views.usuarios,name='listagem_usuarios')
+    path('usuarios/',views.usuarios,name='listagem_usuarios'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(
+        settings.MEDIA_URL,
+        document_root=settings.MEDIA_ROOT
+    )
