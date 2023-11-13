@@ -1,10 +1,14 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from .models import Usuario
 
 def home(request):
-    return render(request,'usuarios/home.html')
+    return render(request, 'home/home.html')
 
-def usuarios(request):
+def cadastro_cliente(request):
+    return render(request,'usuarios/cadastro_cliente.html')
+
+def listagem_cliente(request):
     #Salvar os dados da tela para o banco de dados
     novo_usuario = Usuario()
     novo_usuario.nome =  request.POST.get("nome")
@@ -18,4 +22,11 @@ def usuarios(request):
         'usuarios' : Usuario.objects.all()
     }
     #Retornar os dados para a pagina de listagem de usuários
-    return render(request, 'usuarios/usuarios.html', usuarios)
+    return render(request, 'usuarios/listagem_cliente.html', usuarios)
+
+#class UsuarioUpdate(UpdateView):
+    teplate_name = "cadastro_cliente/forms.html"
+    model = "Usuario"
+    fields = ["nome", "idade", "cpf", "rg"]
+    sucess_url = reverse_lazy("listagem_cliente")
+    

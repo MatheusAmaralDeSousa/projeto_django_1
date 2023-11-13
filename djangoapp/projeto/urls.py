@@ -21,6 +21,8 @@ urlpatterns = [
     #rota, view responsavel, nome de referencia
     # usuarios.com
     path('',views.home,name = "home"),
+    #usuarios.com/cadastro
+    path('/cadastro',views.cadastro_cliente,name = "cadastro_cliente"),
     # usuarios.com/usuarios
-    path('usuarios/',views.usuarios,name='listagem_usuarios')
+    path('usuarios/',views.listagem_cliente,name='listagem_cliente')
 ]
