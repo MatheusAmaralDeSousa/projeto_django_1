@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+{% block conteudo %}
+<body class="bg-gray-900 h-screen flex items-center justify-center">
+    <div class="text-center text-white font-bold">
+        <h1 class="text-4xl mb-4">Bem-vindo ao cadastro de clientes</h1>
+        <p class="text-lg mb-6 text-white font-bold">Cadastre um novo cliente</p>
+        <a href="{% url 'cadastro_cliente' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Cadastro</a>
+
+        <a href="{% url 'listagem_cliente' %}" class="bg-blue-500 hover:bg-blue-700 ml-5 text-white font-bold py-2 px-4 rounded">Listagem</a>
+    </div>
+</body>
+{% endblock %}
+</html>
