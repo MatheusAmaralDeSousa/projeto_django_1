@@ -1,19 +1,22 @@
 from django.shortcuts import render,  get_object_or_404, redirect
 from .models import Usuario
+from .forms import UsuarioForm
 
 def home(request):
     return render(request, 'home/home.html')
 
+
 def cadastro_cliente(request):
-    #Salvar os dados da tela para o banco de dados
     if request.method == 'POST':
-        novo_usuario = Usuario()
-        novo_usuario.nome =  request.POST.get("nome")
-        novo_usuario.idade = request.POST.get("idade")
-        novo_usuario.cpf = request.POST.get("cpf")
-        novo_usuario.rg = request.POST.get("rg")
-        novo_usuario.save() 
-    return render(request,'usuarios/cadastro_cliente.html')
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('listagem_cliente')
+    else:
+        form = UsuarioForm()
+
+    return render(request, 'usuarios/cadastro_cliente.html', {'form': form})
+
 
 def listagem_cliente(request):
     #Exibir todos os usuarios do banco de dados
