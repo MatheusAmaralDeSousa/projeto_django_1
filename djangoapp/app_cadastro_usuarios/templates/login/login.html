@@ -1,0 +1,35 @@
+{% extends 'login/base.html' %}
+
+{% block conteudo %}
+<div class="bg-gray-900 h-screen flex items-center justify-center"> 
+    <div class="Conteiner">
+        <div class="form">
+            <div class="form-header">
+                <div class="title">
+                    <div class="text-center">
+                        <h1 class="text-2xl font-bold py-3 text-white">
+                            Login
+                        </h1>
+                    </div>
+                </div>
+            </div>
+            
+            <form method="post" class="text-center"> 
+                {% csrf_token %}
+                <div class="mx-auto max-w-sm"> 
+                    {{ form.as_p }}
+                    <button class="bg-blue-500 px-4 py-2 w-full rounded text-white font-bold hover:bg-blue-700 mt-4" type="submit"> 
+                        Entrar
+                    </button>
+                </div>
+            </form>
+
+            {% if user.is_authenticated %}
+            <script>
+                window.location.replace("{% url 'home' %}");
+            </script>
+        {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
