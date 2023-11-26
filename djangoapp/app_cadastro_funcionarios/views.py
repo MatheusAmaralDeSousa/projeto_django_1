@@ -24,5 +24,5 @@ def funcionarios(request):
     funcionario = {
         'funcionario' : Funcionarios.objects.all()
     }
-    #Retornar os dados para a pagina de listagem de usuários
+    #Retornar os dados para a pagina de listagem de funcionarios
     return render(request, 'funcionario/funcionario.html', funcionario)
