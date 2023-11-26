@@ -28,7 +28,7 @@ urlpatterns = [
     # usuarios.com/usuarios
     path('listagem_cliente/',views.listagem_cliente,name='listagem_cliente'),
     #usuarios.com/editar
-    path('editar/<int:id>/',views.editar_cliente,name= "editar_cliente")
+    path('editar/<int:usuario_id>/',views.editar_cliente,name= "editar_cliente")
 ]
 
 if settings.DEBUG:
