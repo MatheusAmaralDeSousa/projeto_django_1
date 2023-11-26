@@ -1,6 +1,6 @@
 from django.shortcuts import render,  get_object_or_404, redirect
 from .models import Usuario
-from .forms import UsuarioForm
+from .forms import UsuarioForm, UsuarioEditForm
 
 def home(request):
     return render(request, 'home/home.html')
@@ -28,16 +28,15 @@ def listagem_cliente(request):
 
 
 
-def editar_cliente(request, id):
-    usuario = get_object_or_404(Usuario, pk=id) 
+def editar_cliente(request, usuario_id):
+    usuario = get_object_or_404(Usuario, id_usuario=usuario_id)  
 
     if request.method == 'POST':
-        usuario.nome = request.POST.get("nome")
-        usuario.idade = request.POST.get("idade")
-        usuario.cpf = request.POST.get("cpf")
-        usuario.rg = request.POST.get("rg")
-        usuario.save()  
+        form = UsuarioEditForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return redirect('listagem_cliente')
+    else:
+        form = UsuarioEditForm(instance=usuario) 
 
-        return redirect('listagem_cliente')
-
-    return render(request, 'usuarios/editar_cliente.html', {'usuario': usuario})
+    return render(request, 'usuarios/editar_cliente.html', {'form': form, 'usuario_id': usuario_id})
