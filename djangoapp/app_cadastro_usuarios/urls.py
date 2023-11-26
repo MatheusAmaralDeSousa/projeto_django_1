@@ -21,13 +21,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('navbar/', include('appnavbar.urls')),
-    path('cadastro-usuarios/', include('app_cadastro_usuarios.urls')),
-    path('cadastro-funcionario/', include('app_cadastro_funcionario.urls')),
+    #rota, view responsavel, nome de referencia
+    path('', navbar_views.home, name='home'),
+    path('navbar/', include('navbar.urls')), 
+    # usuarios.com
+    path('',views.home,name = "home"),
+    #usuarios.com/cadastro
+    path('cadastro/',views.cadastro_cliente,name = "cadastro_cliente"),
+    # usuarios.com/usuarios
+    path('listagem_cliente/',views.listagem_cliente,name='listagem_cliente'),
+    #usuarios.com/editar
+    path('editar/<int:usuario_id>/',views.editar_cliente,name= "editar_cliente")
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(
-        settings.MEDIA_URL,
-        document_root=settings.MEDIA_ROOT
-    )
