@@ -1,21 +1,42 @@
-from django.shortcuts import render
+from django.shortcuts import render,  get_object_or_404, redirect
 from .models import Usuario
+from .forms import UsuarioForm, UsuarioEditForm
 
 def home(request):
-    return render(request,'usuarios/home.html')
+    return render(request, 'home/home.html')
 
-def usuarios(request):
-    #Salvar os dados da tela para o banco de dados
-    novo_usuario = Usuario()
-    novo_usuario.nome =  request.POST.get("nome")
-    novo_usuario.idade = request.POST.get("idade")
-    novo_usuario.cpf = request.POST.get("cpf")
-    novo_usuario.rg = request.POST.get("rg")
-    novo_usuario.save()
-    
+
+def cadastro_cliente(request):
+    if request.method == 'POST':
+        form = UsuarioForm(request.POST)
+        if form.is_valid():
+            form.save() 
+            return redirect('listagem_cliente')
+    else:
+        form = UsuarioForm()
+
+    return render(request, 'usuarios/cadastro_cliente.html', {'form': form})
+
+
+def listagem_cliente(request):
     #Exibir todos os usuarios do banco de dados
     usuarios = {
-        'usuarios' : Usuario.objects.all()
+        'usuarios' : Usuario.objects.all().order_by('id_usuario')
     }
     #Retornar os dados para a pagina de listagem de usuários
-    return render(request, 'usuarios/usuarios.html', usuarios)
+    return render(request, 'usuarios/listagem_cliente.html', usuarios)
+
+
+
+def editar_cliente(request, usuario_id):
+    usuario = get_object_or_404(Usuario, id_usuario=usuario_id)  
+
+    if request.method == 'POST':
+        form = UsuarioEditForm(request.POST, instance=usuario)
+        if form.is_valid():
+            form.save()
+            return redirect('listagem_cliente')
+    else:
+        form = UsuarioEditForm(instance=usuario) 
+
+    return render(request, 'usuarios/editar_cliente.html', {'form': form, 'usuario_id': usuario_id})
