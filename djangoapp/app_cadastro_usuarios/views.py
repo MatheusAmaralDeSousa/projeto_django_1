@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from .models import Usuario
 from .forms import UsuarioForm, LoginForm
 
-@login_required(login_url='login')
+#@login_required(login_url='login')
 def home(request):
     return render(request, 'home/home.html')
 
