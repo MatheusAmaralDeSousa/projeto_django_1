@@ -6,7 +6,6 @@ class Fornecedor(models.Model):
     cnpj = models.CharField(max_length=14, unique=True)
     email = models.EmailField(max_length=255)
     telefone = models.CharField(max_length=11)
-    celular = models.CharField(max_length=11)
     cep = models.CharField(max_length=8)
     endereco = models.CharField(max_length=255) 
     numero = models.IntegerField(max_length=10)
