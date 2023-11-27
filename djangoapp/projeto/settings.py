@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app_cadastro_usuarios',
     'app_cadastro_fornecedores',
+    'app_cadastro_funcionarios',
     'app_navbar'
 ]
 
