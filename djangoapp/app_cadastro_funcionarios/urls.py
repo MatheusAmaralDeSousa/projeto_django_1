@@ -16,20 +16,15 @@ Including another URLconf
 """
 from django.urls import path, include
 from app_cadastro_funcionarios import views
-from app_navbar import views as navbar_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    #rota, view responsavel, nome de referencia
-    path('', navbar_views.home, name='home'),
-    path('navbar/', include('navbar.urls')), 
-    # funcionarios.com
-    path('',views.home,name = "home"),
-    #funcionarios.com/cadastro
-    path('cadastro/',views.cadastro_cliente,name = "cadastro_cliente"),
-    # funcionarios.com/funcionarios
-    path('listagem_cliente/',views.listagem_cliente,name='listagem_cliente'),
-    #funcionarios.com/editar
-    path('editar/<int:funcionario_id>/',views.editar_cliente,name= "editar_cliente")
+    path('home/', views.home, name="home"),
+    # funcionarios.com/cadastro
+    path('cadastro/', views.cadastro_funcionario, name="cadastro_funcionario"),
+    # funcionarios.com/listagem_cliente
+    path('listagem_funcionario/', views.listagem_funcionario, name='listagem_funcionario'),
+    # funcionarios.com/editar
+    path('editar/<int:funcionario_id>/', views.editar_funcionario, name="editar_funcionario")
 ]

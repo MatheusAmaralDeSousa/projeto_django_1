@@ -7,8 +7,8 @@ from django.forms import ModelForm
 class FuncionarioForm(forms.ModelForm):
     class Meta:
         model = Funcionario
-        fields = ["nome", "idade", "cpf", "rg", "emai", "telefone", "cep", "endereco", " bairro", "cidade", "complemento", "numero", "uf", "cargo"]
-        
+        fields = ["nome", "idade", "cpf", "rg", "email", "telefone", "cep", "endereco", "bairro", "cidade", "complemento", "numero", "uf", "cargo"]
+    
     # Validação de idade
     def clean_idade(self):
         idade = self.cleaned_data.get('idade')
@@ -54,8 +54,8 @@ class FuncionarioForm(forms.ModelForm):
 class FuncionarioEditForm(forms.ModelForm):
     class Meta:
         model = Funcionario
-        fields = ["nome", "idade", "cpf", "rg", "emai", "telefone", "cep", "endereco", " bairro", "cidade", "complemento", "numero", "uf", "cargo"]
-        
+        fields = ["nome", "idade", "cpf", "rg", "email", "telefone", "cep", "endereco", "bairro", "cidade", "complemento", "numero", "uf", "cargo"]
+    
     idade = forms.IntegerField(
         validators=[RegexValidator(regex=r'^[0-9]*$', message='Apenas números são permitidos.')]
     )
@@ -79,5 +79,3 @@ class FuncionarioEditForm(forms.ModelForm):
     numero = forms.IntegerField(
         validators=[RegexValidator(regex=r'^[0-9]*$', message='Apenas números são permitidos.')]
     )
-
-    

@@ -16,14 +16,13 @@ Including another URLconf
 """
 from django.urls import path, include
 from app_cadastro_usuarios import views
-from app_navbar import views as navbar_views
+from app_cadastro_funcionarios import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('navbar/', include('appnavbar.urls')),
     path('cadastro-usuarios/', include('app_cadastro_usuarios.urls')),
-    path('cadastro-funcionario/', include('app_cadastro_funcionario.urls')),
+    path('cadastro-funcionarios/', include('app_cadastro_funcionarios.urls')),
 ]
 
 if settings.DEBUG:
