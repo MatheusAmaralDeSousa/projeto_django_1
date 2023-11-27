@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900">
+    {% block content %}
+    <nav class="bg-blue-900 p-4">
+        <div class="flex items-center justify-between">
+            <div class="text-white text-xl">Home</div>
+            <div class="flex space-x-4">
+                <a href="" class="text-white">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-4">
+        <!-- Conteúdo aqui -->
+        <!-- Pode adicionar a estrutura da tela home com as opções de cadastro -->
+        <div class="text-center">
+            <h1 class="text-3xl font-bold mb-6 text-white">Bem vindo</h1>
+            <a href="{% url 'home' %}" class="block mx-auto bg-blue-500 hover:bg-blue-600 text-white rounded-md py-4 text-center font-semibold transition duration-300 w-48 mb-6">
+                Cadastrar Cliente
+            </a>
+        </div>
+    </div>
+    {% endblock %}
+</body>
+
+</html>

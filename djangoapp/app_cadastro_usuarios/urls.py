@@ -20,11 +20,11 @@ from app_cadastro_usuarios import views
 urlpatterns = [
     #rota, view responsavel, nome de referencia
     # usuarios.com
-    path('',views.home_cadastro_cliente,name = "home_cadastro_cliente"),
+    path('',views.homeCadastro_cliente,name = "home"),
     #usuarios.com/cadastro
     path('cadastro/',views.cadastro_cliente,name = "cadastro_cliente"),
     # usuarios.com/usuarios
-    path('listagem_cliente/',views.listagem_cliente,name='listagem_cliente'),
+    path('listagem_fornecedores/',views.listagem_cliente,name='listagem_cliente'),
     #usuarios.com/editar
     path('editar/<int:usuario_id>/',views.editar_cliente,name= "editar_cliente"),
     #usuarios/excluir

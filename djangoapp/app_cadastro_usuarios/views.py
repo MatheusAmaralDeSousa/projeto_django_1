@@ -2,7 +2,7 @@ from django.shortcuts import render,  get_object_or_404, redirect
 from .models import Usuario
 from .forms import UsuarioForm, UsuarioEditForm
 
-def home_cadastro_cliente(request):
+def homeCadastro_cliente(request):
     return render(request, 'home/home.html')
 
 
