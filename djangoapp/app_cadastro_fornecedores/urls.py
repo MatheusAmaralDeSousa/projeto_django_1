@@ -4,7 +4,7 @@ from app_cadastro_fornecedores import views
 urlpatterns = [
     #rota, view responsavel, nome de referencia
     # fornecedores.com
-    path('',views.homeCadastro_fornecedor,name = "home"),
+    path('',views.home_cadastro_fornecedor,name = "home"),
     #fornecedores.com/cadastro
     path('cadastro/',views.cadastro_fornecedor,name = "cadastro_fornecedor"),
     # fornecedores.com/fornecedores
