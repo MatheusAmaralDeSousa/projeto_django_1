@@ -1,8 +1,7 @@
 from django import forms
 from .models import Funcionario
 from django.core.exceptions import ValidationError
-from django.core.validators import EmailValidator, RegexValidator
-from django.forms import ModelForm
+from django.core.validators import EmailValidator
 
 class FuncionarioForm(forms.ModelForm):
     class Meta:
