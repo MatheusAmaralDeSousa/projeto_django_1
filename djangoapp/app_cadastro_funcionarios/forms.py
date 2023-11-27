@@ -11,8 +11,8 @@ class FuncionarioForm(forms.ModelForm):
     # Validação de idade
     def clean_idade(self):
         idade = self.cleaned_data.get('idade')
-        if idade < 18:
-            raise ValidationError('A idade deve ser maior ou igual a 18 anos.')
+        if idade < 18 or idade >125:
+            raise ValidationError('A idade deve ser maior ou igual a 18 anos ou neor ou igual a 125 anos.')
         return idade
 
     # Validação de CPF
