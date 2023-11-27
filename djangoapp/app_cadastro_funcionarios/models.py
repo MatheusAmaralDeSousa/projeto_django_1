@@ -16,5 +16,4 @@ class Funcionario(models.Model):
     complemento = models.CharField(max_length=100, null=False) 
     uf = models.CharField(max_length=2, null=False)  
     cargo = models.CharField(max_length=50, null=False)
-
     objects = models.Manager()

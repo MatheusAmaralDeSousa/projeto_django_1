@@ -34,3 +34,9 @@ def editar_funcionario(request, funcionario_id):
         form = FuncionarioEditForm(instance=funcionario)
 
     return render(request, 'funcionarios/editar_funcionario.html', {'form': form, 'funcionario_id': funcionario_id})
+
+
+def delete_user(request, user_id):
+    funcionario = get_object_or_404(Funcionario, pk=user_id)
+    funcionario.delete()
+    return redirect('listagem_funcionario')
