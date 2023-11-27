@@ -10,10 +10,10 @@ class Funcionario(models.Model):
     telefone = models.CharField(max_length=11, null=False)  
     cep = models.CharField(max_length=8, null=False)  
     endereco = models.CharField(max_length=100, null=False) 
+    numero = models.CharField(max_length=5, null=False) 
     bairro = models.CharField(max_length=100, null=False)
     cidade = models.CharField(max_length=100, null=False)
-    complemento = models.CharField(max_length=100, null=False)
-    numero = models.CharField(max_length=5, null=False) 
+    complemento = models.CharField(max_length=100, null=False) 
     uf = models.CharField(max_length=2, null=False)  
     cargo = models.CharField(max_length=50, null=False)
 
