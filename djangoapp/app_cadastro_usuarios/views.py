@@ -2,8 +2,8 @@ from django.shortcuts import render,  get_object_or_404, redirect
 from .models import Usuario
 from .forms import UsuarioForm, UsuarioEditForm
 
-def homeCadastro_cliente(request):
-    return render(request, 'home/home.html')
+def home_cliente(request):
+    return render(request, 'home/home_cliente.html')
 
 
 def cadastro_cliente(request):

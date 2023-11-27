@@ -20,7 +20,7 @@ from app_cadastro_usuarios import views
 urlpatterns = [
     #rota, view responsavel, nome de referencia
     # usuarios.com
-    path('',views.homeCadastro_cliente,name = "home_cliente"),
+    path('',views.home_cliente,name = "home_cliente"),
     #usuarios.com/cadastro
     path('cadastro/',views.cadastro_cliente,name = "cadastro_cliente"),
     # usuarios.com/usuarios

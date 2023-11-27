@@ -10,8 +10,5 @@ class Fornecedor(models.Model):
     cep = models.CharField(max_length=10)
     endereco = models.CharField(max_length=255)  # Changed from 'endereço'
     numero = models.CharField(max_length=10)
-    uf = models.CharField(max_length=2)  # Changed from 'UF'
-
+    UF = models.CharField(max_length=2)  # Changed from 'UF'
     objects = models.Manager()
-
-    
