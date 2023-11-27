@@ -14,13 +14,13 @@ def cadastro_funcionario(request):
     else:
         form = FuncionarioForm()
 
-    return render(request, 'usuarios/cadastro_funcionario.html', {'form': form})
+    return render(request, 'funcionarios/cadastro_funcionario.html', {'form': form})
 
 def listagem_funcionario(request):
     funcionarios = {
         'funcionarios': Funcionario.objects.all().order_by('id_funcionario')
     }
-    return render(request, 'usuarios/listagem_funcionario.html', funcionarios)
+    return render(request, 'funcionarios/listagem_funcionario.html', funcionarios)
 
 def editar_funcionario(request, funcionario_id):
     funcionario = get_object_or_404(Funcionario, id_funcionario=funcionario_id)

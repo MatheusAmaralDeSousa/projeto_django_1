@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('home/', views.home, name="home"),
+    path('', views.home, name="home"),
     # funcionarios.com/cadastro
     path('cadastro/', views.cadastro_funcionario, name="cadastro_funcionario"),
     # funcionarios.com/listagem_cliente
