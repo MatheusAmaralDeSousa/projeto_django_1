@@ -38,4 +38,4 @@ def editar_funcionario(request, funcionario_id):
 def delete_user(request, funcionario_id):
     usuario = get_object_or_404(Funcionario, pk=funcionario_id)
     usuario.delete()
-    return redirect('listagem_cliente')
+    return redirect('listagem_funcionario')
