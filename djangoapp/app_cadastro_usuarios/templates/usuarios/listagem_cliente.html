@@ -83,11 +83,12 @@
                                         class="text-black focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                 </form>
-                                <form>
-                                    <button type="submit"
-                                        class="text-black focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
-                                        <i class="fa-solid fa-trash"></i></button>
-                                </form>
+                                <form class="delete-form" method="POST" action="{% url 'delete_user' usuario.id_usuario %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="delete-user-btn text-black focus:ring-4 focus:ring-black font-medium round-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </form>                                
                             </div>
                         </td>
                     </tr>
@@ -97,4 +98,5 @@
         </div>
     </div>
 </div>
+<script type="delete/javascript" src="js/deleteCliente.js"></script>
 {% endblock %}
