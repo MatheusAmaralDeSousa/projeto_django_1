@@ -2,8 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Funcionario
 from .forms import FuncionarioForm, FuncionarioEditForm
 
-def home(request):
-    return render(request, 'home/home.html')
+def home_funcionario(request):
+    return render(request, 'home/home_funcionario.html')
 
 def cadastro_funcionario(request):
     if request.method == 'POST':

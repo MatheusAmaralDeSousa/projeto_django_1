@@ -19,7 +19,7 @@ from app_cadastro_funcionarios import views
 
 
 urlpatterns = [
-    path('', views.home, name="home"),
+    path('', views.home_funcionario, name="home_funcionario"),
     # funcionarios.com/cadastro
     path('cadastro/', views.cadastro_funcionario, name="cadastro_funcionario"),
     # funcionarios.com/listagem_cliente
