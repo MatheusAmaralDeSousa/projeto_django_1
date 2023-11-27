@@ -8,6 +8,6 @@ class Fornecedor(models.Model):
     telefone = models.CharField(max_length=11)
     cep = models.CharField(max_length=8)
     endereco = models.CharField(max_length=255) 
-    numero = models.IntegerField(max_length=10)
+    numero = models.CharField(max_length=10)
     UF = models.CharField(max_length=2)  
     objects = models.Manager()
