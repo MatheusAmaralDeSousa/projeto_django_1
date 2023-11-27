@@ -40,3 +40,9 @@ def editar_cliente(request, usuario_id):
         form = UsuarioEditForm(instance=usuario) 
 
     return render(request, 'usuarios/editar_cliente.html', {'form': form, 'usuario_id': usuario_id})
+
+
+def delete_user(request, user_id):
+    usuario = get_object_or_404(Usuario, pk=user_id)
+    usuario.delete()
+    return redirect('listagem_cliente')
