@@ -22,7 +22,7 @@
                 {% for field in form %}
                 <div class="imput-box">
                     <label class="text-white font-bold" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    <input name="{{ field.name }}" type="text" placeholder=" Digite seu nome" required class="w-full h-8 border border-black rounded-md" {{ field }}>
+                    <input name="{{ field.name }}" type="text" placeholder=" Digite seu {{ field.name }}" required class="w-full h-8 border border-black rounded-md" {{ field }}>
                 </div>
                 {% endfor %}
                 <div class="d-flex justify-content-end">
