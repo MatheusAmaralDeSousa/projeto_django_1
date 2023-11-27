@@ -24,7 +24,6 @@ class Migration(migrations.Migration):
                 ('endereco', models.TextField(max_length=255)),
                 ('numero', models.IntegerField()),
                 ('uf', models.TextField(max_length=255)),
-                ('cargo', models.TextField(max_length=255)),
             ],
         ),
     ]

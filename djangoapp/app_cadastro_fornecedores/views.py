@@ -42,7 +42,7 @@ def editar_fornecedor(request, fornecedor_id):
     return render(request, 'fornecedores/editar_fornecedor.html', {'form': form, 'fornecedor_id': fornecedor_id})
 
 
-def delete_user(request, user_id):
-    fornecedor = get_object_or_404(Fornecedor, pk=user_id)
+def delete_fornecedor(request, fornecedor_id):
+    fornecedor = get_object_or_404(Fornecedor, pk=fornecedor_id)
     fornecedor.delete()
     return redirect('listagem_fornecedor')
