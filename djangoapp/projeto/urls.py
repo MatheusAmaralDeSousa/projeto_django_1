@@ -20,9 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('', include('app_cadastro_funcionarios.urls')),
-
-    
+    path('', include('app_navbar.urls')),
+    path('cadastro_cliente/',include('app_cadastro_usuarios.urls')),
+    path('cadastro_funcionarios/',include('app_cadastro_funcionarios.urls'))
 ]
 
 if settings.DEBUG:
