@@ -10,7 +10,8 @@ urlpatterns = [
     # fornecedores.com/fornecedores
     path('listagem_fornecedores/',views.listagem_fornecedor,name='listagem_fornecedor'),
     #fornecedores.com/editar
-    path('editar/<int:usuario_id>/',views.editar_fornecedor,name= "editar_fornecedor"),
+    path('editar/<int:fornecedor_id>/',views.editar_fornecedor,name= "editar_fornecedor"),
     #fornecedores/excluir
-    path('delete_fornecedor/<int:fornecedor_id>/',views.delete_fornecedor, name='delete_fornecedor'),
+    path('delete_fornecedor/<int:fornecedor_id>/',views.delete_fornecedor, name='delete_fornecedor')
+    
 ]

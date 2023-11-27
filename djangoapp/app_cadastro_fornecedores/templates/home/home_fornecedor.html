@@ -8,9 +8,21 @@
 {% block conteudo %}
 <body class="bg-gray-900 h-screen flex items-center justify-center">
     <div class="text-center text-white font-bold">
-        <h1 class="text-4xl mb-4">Bem-vindo ao cadastro de fornecedores</h1>
+        <div class="top-bar flex justify-between items-center mb-4">
+            <div>
+                <a href="{% url 'home'%}">
+                    <button type="button"
+                        class="text-white focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
+                        <i class="fa-solid fa-arrow-left"></i><span class="ml-2"><- voltar</span>
+                    </button>
+                </a>
+            </div>
+            <div>
+                <h1 class="text-4xl">Bem-vindo ao cadastro de Fornecedores</h1>
+            </div>
+        </div>
         <p class="text-lg mb-6 text-white font-bold">Cadastre um novo fornecedor</p>
-        <a href="{% url 'home_fornecedor' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Cadastro</a>
+        <a href="{% url 'cadastro_fornecedor' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Cadastro</a>
 
         <a href="{% url 'listagem_fornecedor' %}" class="bg-blue-500 hover:bg-blue-700 ml-5 text-white font-bold py-2 px-4 rounded">Listagem</a>
     </div>

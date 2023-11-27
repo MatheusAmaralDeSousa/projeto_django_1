@@ -1,7 +1,7 @@
 {% extends 'fornecedores/base.html'%}
 
 {% block conteudo %}
-<form action="{% url 'editar_fornecedor' fornecedores_id %}" method="post">
+<form action="{% url 'editar_fornecedor' fornecedor_id %}" method="post">
     {% csrf_token %}
     <div class="Conteiner">
         <div class="form">
