@@ -1,86 +1,66 @@
 from django import forms
 from .models import Fornecedor
-from django.core.exceptions import ValidationError
-from django.core.validators import EmailValidator
+from django.core.validators import EmailValidator, RegexValidator
 
 class FornecedorForm(forms.ModelForm):
     class Meta:
         model = Fornecedor
-        fields = ["nome", "cnpj", "email", "telefone", "celular", "cep", "endereco", "numero", "UF",]
-
-# Validação de CNPJ
-    def clean_cnpj(self):
-        cnpj = self.cleaned_data.get('cnpj')
-        if not cnpj.isdigit() or len(cnpj) != 14:
-            raise ValidationError('CNPJ inválido. Deve conter apenas números e ter 14 dígitos.')
-        return cnpj
+        fields = ["nome", "cnpj", "email", "telefone", "celular", "cep", "endereco", "numero", "UF"]
 
 
-    # Validação de e-mail
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        email_validator = EmailValidator('E-mail inválido.')
-        email_validator(email)
-        return email
+    cnpj = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{14}$', message='O CNPJ deve conter exatamente 14 dígitos.')]
+    )
 
-    # Validação de telefone
-    def clean_telefone(self):
-        telefone = self.cleaned_data.get('telefone')
-        if not telefone.isdigit() or len(telefone) < 9:
-            raise ValidationError('Telefone inválido. Deve conter apenas números e ter pelo menos 10 dígitos.')
-        return telefone
+    email = forms.CharField(
+        validators=[EmailValidator(message='Informe um endereço de e-mail válido.')]
+    )
 
-    # Validação de CEP
-    def clean_cep(self):
-        cep = self.cleaned_data.get('cep')
-        if not cep.isdigit() or len(cep) != 8:
-            raise ValidationError('CEP inválido. Deve conter apenas números e ter 8 dígitos.')
-        return cep
+    telefone = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{9,11}$', message='Informe um número de telefone válido.')]
+    )
+    
+    celular = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{9,11}$', message='Informe um número de celular válido.')]
+    )
 
-    # Validação de número
-    def clean_numero(self):
-        numero = self.cleaned_data.get('numero')
-        if not numero.isdigit():
-            raise ValidationError('Número inválido. Deve conter apenas números.')
-        return numero
+    cep = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{8}$', message='O CEP deve conter exatamente 8 dígitos.')]
+    )
+
+    numero = forms.IntegerField()
+    
+    UF = forms.CharField(
+        validators=[RegexValidator(regex=r'^[A-Za-z]{2}$', message='A UF deve conter exatamente 2 letras.')]
+    )
 
 class FornecedorEditForm(forms.ModelForm):
     class Meta:
         model = Fornecedor
         fields = ["nome", "cnpj", "email", "telefone", "celular", "cep", "endereco", "numero", "UF",]
-        
-# Validação de CNPJ
-    def clean_cnpj(self):
-        cnpj = self.cleaned_data.get('cnpj')
-        if not cnpj.isdigit() or len(cnpj) != 14:
-            raise ValidationError('CNPJ inválido. Deve conter apenas números e ter 14 dígitos.')
-        return cnpj
 
+    cnpj = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{14}$', message='O CNPJ deve conter exatamente 14 dígitos.')]
+    )
 
-    # Validação de e-mail
-    def clean_email(self):
-        email = self.cleaned_data.get('email')
-        email_validator = EmailValidator('E-mail inválido.')
-        email_validator(email)
-        return email
+    email = forms.CharField(
+        validators=[EmailValidator(message='Informe um endereço de e-mail válido.')]
+    )
 
-    # Validação de telefone
-    def clean_telefone(self):
-        telefone = self.cleaned_data.get('telefone')
-        if not telefone.isdigit() or len(telefone) < 9:
-            raise ValidationError('Telefone inválido. Deve conter apenas números e ter pelo menos 10 dígitos.')
-        return telefone
+    telefone = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{9,11}$', message='Informe um número de telefone válido.')]
+    )
+    
+    celular = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{9,11}$', message='Informe um número de celular válido.')]
+    )
 
-    # Validação de CEP
-    def clean_cep(self):
-        cep = self.cleaned_data.get('cep')
-        if not cep.isdigit() or len(cep) != 8:
-            raise ValidationError('CEP inválido. Deve conter apenas números e ter 8 dígitos.')
-        return cep
+    cep = forms.CharField(
+        validators=[RegexValidator(regex=r'^\d{8}$', message='O CEP deve conter exatamente 8 dígitos.')]
+    )
 
-    # Validação de número
-    def clean_numero(self):
-        numero = self.cleaned_data.get('numero')
-        if not numero.isdigit():
-            raise ValidationError('Número inválido. Deve conter apenas números.')
-        return numero
+    numero = forms.IntegerField()
+    
+    UF = forms.CharField(
+        validators=[RegexValidator(regex=r'^[A-Za-z]{2}$', message='A UF deve conter exatamente 2 letras.')]
+    )
