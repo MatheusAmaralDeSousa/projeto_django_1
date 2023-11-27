@@ -5,7 +5,7 @@ from django.core.validators import EmailValidator, RegexValidator
 class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ["nome", "idade", "cpf", "rg" "email", "telefone", "cep", "endereco", "bairro", "cidade", "complemento", "numero", "uf"]
+        fields = ["nome", "idade", "cpf", "rg", "email", "telefone", "cep", "endereco", "bairro", "cidade", "complemento", "numero", "UF"]
     
     idade = forms.IntegerField(
         validators=[RegexValidator(regex=r'^[0-9]*$', message='Apenas números são permitidos.')]
@@ -27,7 +27,7 @@ class UsuarioForm(forms.ModelForm):
         validators=[RegexValidator(regex=r'^\d{8}$', message='O CEP deve conter exatamente 8 dígitos.')]
     )
 
-    numero = forms.IntegerField(
+    numero = forms.CharField(
         validators=[RegexValidator(regex=r'^[0-9]*$', message='Apenas números são permitidos.')]
     )
     
@@ -38,7 +38,7 @@ class UsuarioForm(forms.ModelForm):
 class UsuarioEditForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ["nome", "idade", "cpf", "rg" "email", "telefone", "cep", "endereco", "bairro", "cidade", "complemento", "numero", "uf"]
+        fields = ["nome", "idade", "cpf", "rg", "email", "telefone", "cep", "endereco", "bairro", "cidade", "complemento", "numero", "UF"]
     
     idade = forms.IntegerField(
         validators=[RegexValidator(regex=r'^[0-9]*$', message='Apenas números são permitidos.')]
@@ -60,7 +60,7 @@ class UsuarioEditForm(forms.ModelForm):
         validators=[RegexValidator(regex=r'^\d{8}$', message='O CEP deve conter exatamente 8 dígitos.')]
     )
 
-    numero = forms.IntegerField(
+    numero = forms.CharField(
         validators=[RegexValidator(regex=r'^[0-9]*$', message='Apenas números são permitidos.')]
     )
     
