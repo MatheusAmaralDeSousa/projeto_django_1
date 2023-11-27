@@ -1,0 +1,135 @@
+<script src="https://cdn.tailwindcss.com"></script>
+{% extends 'fornecedor/base.html' %}
+{% block conteudo %}
+
+<div class="w-full py-1 space-y-5">
+    <div class="flex justify-between items-center top-bar">
+        <a href="{% url 'home'%}">
+            <button type="button"
+                class="text-white focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
+                <i class="fa-solid fa-arrow-left"></i><span class="ml-2">Voltar</span>
+            </button>
+        </a>
+        <div class="mr-80">
+            <a href="{% url 'cadastro_fornecedor' %}"
+                class="bg-blue-500 hover:bg-blue-700 py-2 rounded-md text-gray-50 hover:text-gray-700 text-center px-4">
+                Novo fornecedor
+            </a>
+        </div>
+    </div>
+    <div class="flex flex-col items-center">
+        <div class="form-header">
+            <div class="title">
+                <div class="text-center">
+                    <h1 class="text-2xl font-bold py-3 text-white">
+                        Listagem de fornecedores
+                    </h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="mx-auto overflow-x-auto rounded-lg border border border-black late-50 my-auto">
+            <table class="min-w-full divide-y-2 divide-black-800 text-sm bg-white">
+                <thead>
+                    <tr>
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            ID
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Nome
+                        </th>
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            CNPJ
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Telefone
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Celular
+                        </th>
+                        
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Endereço
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Cep
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            UF
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Numero
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Email
+                        </th>
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Ações
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody class="divide-y divide-gray-200">
+                    <tr class="hover:bg-gray-200 hover:text-gray-900">
+                        {% for fornecedor in fornecedores%}
+                        <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
+                            {{fornecedor.id_fornecedor}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.nome}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.CNPJ}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.telefone}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.celular}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.endereco}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.cep}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.UF}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.numero}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{fornecedor.email}}
+                        </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            <div class="flex justify-center">
+
+                                <form action="{% url 'editar_fornecedor' fornecedor.id_fornecedor %}">
+                                    <button type="submit"
+                                        class="text-black focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300"><i
+                                            class="fa-solid fa-pen-to-square"></i></button>
+                                </form>
+                                <form>
+                                    <button type="submit"
+                                        class="text-black focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
+                                        <i class="fa-solid fa-trash"></i></button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
