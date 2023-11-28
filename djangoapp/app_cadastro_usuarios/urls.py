@@ -24,9 +24,9 @@ urlpatterns = [
     #usuarios.com/cadastro
     path('cadastro/',views.cadastro_cliente,name = "cadastro_cliente"),
     # usuarios.com/usuarios
-    path('listagem_fornecedores/',views.listagem_cliente,name='listagem_cliente'),
+    path('listagem_cliente/',views.listagem_cliente,name='listagem_cliente'),
     #usuarios.com/editar
     path('editar/<int:usuario_id>/',views.editar_cliente,name= "editar_cliente"),
     #usuarios/excluir
-    path('delete_user/<int:user_id>/',views.delete_user, name='delete_user')
+    path('delete_user/<int:user_id>/',views.delete_user, name='delete_user'),
 ]
