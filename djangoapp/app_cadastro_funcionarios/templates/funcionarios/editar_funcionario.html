@@ -1,7 +1,7 @@
-{% extends 'usuarios/base.html' %}
+{% extends 'funcionarios/base.html'%}
 
 {% block conteudo %}
-<form action="{% url 'cadastro_cliente' %}" method="post">
+<form action="{% url 'editar_funcionario' funcionario_id %}" method="post">
     {% csrf_token %}
     <div class="Conteiner">
         <div class="form">
@@ -9,7 +9,7 @@
                     <div class="title">
                         <div class="text-center">
                             <h1 class="text-2xl font-bold py-3 text-white">
-                                Cadastro de Clientes
+                                Edição de Funcionario
                             </h1>
                         </div>
                     </div>
@@ -22,11 +22,11 @@
                 {% for field in form %}
                 <div class="imput-box">
                     <label class="text-white font-bold" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    <input name="{{ field.name }}" type="text" placeholder=" Digite seu {{ field.name }}" required class="w-full h-8 border border-black rounded-md" {{ field }}>
+                    <input name="{{ field.name }}" type="text" placeholder=" Digite seu nome" required class="w-full h-8 border border-black rounded-md" {{ field }}>
                 </div>
                 {% endfor %}
                 <div class="d-flex justify-content-end">
-                    <a href="{% url 'home_cliente' %}" class="bg-blue-500 hover:bg-blue-700 w-28 text-white font-bold py-2 px-4 rounded">Cancelar</a>
+                    <a href="{% url 'listagem_funcionario'%}" class="bg-blue-500 hover:bg-blue-700 w-28 text-white font-bold py-2 px-4 rounded">Cancelar</a>
 
                     <button class="bg-blue-500 px-4 py-2 w-28 rounded text-white font-bold hover:bg-blue-700 ml-5">
                         Gravar
@@ -37,3 +37,4 @@
         </div>
 </form>
 {% endblock %}
+

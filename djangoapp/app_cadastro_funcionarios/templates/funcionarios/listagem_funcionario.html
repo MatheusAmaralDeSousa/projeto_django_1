@@ -1,19 +1,19 @@
 <script src="https://cdn.tailwindcss.com"></script>
-{% extends 'usuarios/base.html' %}
+{% extends 'funcionarios/base.html'%}
 {% block conteudo %}
 
 <div class="w-full py-1 space-y-5">
     <div class="flex justify-between items-center top-bar">
-        <a href="{% url 'home_cliente'%}">
+        <a href="{% url 'home_funcionario'%}">
             <button type="button"
                 class="text-white focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
                 <i class="fa-solid fa-arrow-left"></i><span class="ml-2">Voltar</span>
             </button>
         </a>
         <div class="mr-80">
-            <a href="{% url 'cadastro_cliente' %}"
+            <a href="{% url 'cadastro_funcionario' %}"
                 class="bg-blue-500 hover:bg-blue-700 py-2 rounded-md text-gray-50 hover:text-gray-700 text-center px-4">
-                Novo Cliente
+                Novo Funcionario
             </a>
         </div>
     </div>
@@ -22,7 +22,7 @@
             <div class="title">
                 <div class="text-center">
                     <h1 class="text-2xl font-bold py-3 text-white">
-                        Listagem de Clientes
+                        Listagem de Funcionarios
                     </h1>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                             Nome
                         </th>
                         <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
-                            Idade
+                            Email
                         </th>
 
                         <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
@@ -52,6 +52,11 @@
                         </th>
 
                         <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
+                            Cargo
+                        </th>
+
+
+                        <th class="whitespace-nowrap px-4 py-2 text-left font-medium text-black text-center">
                             Ações
                         </th>
                     </tr>
@@ -59,36 +64,40 @@
 
                 <tbody class="divide-y divide-gray-200">
                     <tr class="hover:bg-gray-200 hover:text-gray-900">
-                        {% for usuario in usuarios%}
+                        {% for funcionario in funcionarios%}
                         <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900 text-center">
-                            {{usuario.id_usuario}}
+                            {{funcionario.id_funcionario}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.nome}}
+                            {{funcionario.nome}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.idade}}
+                            {{funcionario.email}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.cpf}}
+                            {{funcionario.cpf}}
                         </td>
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
-                            {{usuario.rg}}
+                            {{funcionario.rg}}
                         </td>
+                        <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
+                            {{funcionario.cargo}}
+                        </td>
+                        
                         <td class="whitespace-nowrap px-4 py-2 text-gray-700 h-8 text-center">
                             <div class="flex justify-center">
 
-                                <form action="{% url 'editar_cliente' usuario.id_usuario %}">
+                                <form action="{% url 'editar_funcionario' funcionario.id_funcionario %}">
                                     <button type="submit"
                                         class="text-black focus:ring-4 focus:ring-black font-medium rounded-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300"><i
                                             class="fa-solid fa-pen-to-square"></i></button>
                                 </form>
-                                <form class="delete-form" method="POST" action="{% url 'delete_user' usuario.id_usuario %}">
+                                <form class="delete-form" method="POST" action="{% url 'delete_funcionario' funcionario.id_funcionario %}">
                                     {% csrf_token %}
                                     <button type="submit" class="delete-user-btn text-black focus:ring-4 focus:ring-black font-medium round-lg text-sm px-3 py-2.5 mr-2 mb-2 hover:bg-gray-300">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
-                                </form>                                     
+                                </form>              
                             </div>
                         </td>
                     </tr>
@@ -98,5 +107,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

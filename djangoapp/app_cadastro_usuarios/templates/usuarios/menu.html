@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="Conteiner">
+        <div class="container bg-secondary">
+            <div class="flex flex-col items-center">
+                <div class="top-bar bg-white h-65 rounded-xl w-2/3 border border-gray-500">
+                    <div class="title">
+                        <div class="text-center">
+                            <h1 class="text-2xl font-bold py-3 text-gray-500 ml-4">Bem vindo ao cadastro de cliente!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-2/3 py-1 space-y-5 mx-auto">
+                <div class="w-full flex flex-col bg-white rounded-lg border border-gray-500 justify-between py-10 px-5">
+                    <div class="w-fit flex justify-end py-1 w-full space-x-5">
+                        <button class="border border-black bg-gray-500 w-32 py-4 rounded-lg text-gray-50  hover:border-black hover:bg-gray-400">
+                            Listar Clientes
+                        </button>
+                        <a  href="redefSenha.jsp?emailId=<%=user.getEmail()%>&redefinirSenha=<%=redefinirSenha%>" class="text-center font-bold border border-black bg-gray-500 w-32 py-4 rounded-lg text-gray-50 hover:border-black hover:bg-gray-500">
+                            Cadastrar cliente
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
