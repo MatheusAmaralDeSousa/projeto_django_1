@@ -35,7 +35,7 @@ def editar_funcionario(request, funcionario_id):
 
     return render(request, 'funcionarios/editar_funcionario.html', {'form': form, 'funcionario_id': funcionario_id})
 
-def delete_user(request, funcionario_id):
+def delete_funcionario(request, funcionario_id):
     usuario = get_object_or_404(Funcionario, pk=funcionario_id)
     usuario.delete()
     return redirect('listagem_funcionario')
