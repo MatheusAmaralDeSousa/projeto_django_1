@@ -28,5 +28,5 @@ urlpatterns = [
     #usuarios.com/editar
     path('editar/<int:usuario_id>/',views.editar_cliente,name= "editar_cliente"),
     #usuarios/excluir
-    path('delete_user/<int:user_id>/',views.delete_user, name='delete_user'),
+    path('delete_user/<int:user_id>/',views.delete_user, name='delete_user')
 ]
